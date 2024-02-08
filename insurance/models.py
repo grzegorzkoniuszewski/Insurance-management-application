@@ -19,6 +19,7 @@ class PolicyType(models.Model):
         # Returns the name of the policy type as a string representation of the object.
         return self.policy_type_name
 
+
 class InsurancePolicy(models.Model):
     # Represents an insurance policy.
     # Policy number, unique for each policy.
@@ -30,14 +31,14 @@ class InsurancePolicy(models.Model):
     # Status of the policy, linked to PolicyStatus model, indicates the current state of the policy.
     status = models.ForeignKey(
         PolicyStatus,
-        verbose_name="Policy Status",
+        verbose_name="Policies Status",
         on_delete=models.SET_NULL,  # Action to take when related object is deleted.
         null=True,  # Allows null values in the database.
     )
     # Type of the policy, linked to PolicyType model, specifies the type of the policy.
     policy_type = models.ForeignKey(
         PolicyType,
-        verbose_name="Policy Type",
+        verbose_name="Policies Type",
         on_delete=models.SET_NULL,  # Action to take when related object is deleted.
         null=True,  # Allows null values in the database.
     )
