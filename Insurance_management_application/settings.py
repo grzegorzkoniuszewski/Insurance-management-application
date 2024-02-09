@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'accounts',
     # 'TUBase',
     'TUBase.apps.TubaseConfig'
+    'insurance',
 ]
 
 MIDDLEWARE = [
