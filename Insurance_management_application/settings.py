@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # 'TUBase',
     'TUBase.apps.TubaseConfig'
     'insurance',
+    'vehicle'
 ]
 
 MIDDLEWARE = [
