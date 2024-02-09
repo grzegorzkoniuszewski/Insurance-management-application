@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     # 'TUBase',
-    'TUBase.apps.TubaseConfig'
+    'TUBase.apps.TubaseConfig',
     'insurance',
     'vehicle'
 ]

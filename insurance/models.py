@@ -11,7 +11,7 @@ class PolicyStatus(models.Model):
 
     class Meta:
         verbose_name = "Policy status"
-        verbose_name_plural = "Policy status"
+        verbose_name_plural = "Policy statuses"
 
 
 class PolicyType(models.Model):
@@ -50,3 +50,7 @@ class InsurancePolicy(models.Model):
     def __str__(self):
         # Returns the policy number as a string representation of the object.
         return self.policy_number
+
+    class Meta:
+        verbose_name = "Insurance policy"
+        verbose_name_plural = "Insurance policies"
