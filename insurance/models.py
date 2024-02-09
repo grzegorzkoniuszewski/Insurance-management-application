@@ -9,6 +9,10 @@ class PolicyStatus(models.Model):
         # Returns the name of the policy status as a string representation of the object.
         return self.policy_status_name
 
+    class Meta:
+        verbose_name = "Policy status"
+        verbose_name_plural = "Policy status"
+
 
 class PolicyType(models.Model):
     # Represents the type of an insurance policy.

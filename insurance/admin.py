@@ -1,17 +1,20 @@
 from django.contrib import admin
 from .models import PolicyStatus, PolicyType, InsurancePolicy
 
+
 # Admin class for PolicyStatus model.
 @admin.register(PolicyStatus)
 class PolicyStatusAdmin(admin.ModelAdmin):
     # Display the 'policy_status_name' field in the admin list view.
     list_display = ('policy_status_name',)
 
+
 # Admin class for PolicyType model.
 @admin.register(PolicyType)
 class PolicyTypeAdmin(admin.ModelAdmin):
     # Display the 'policy_type_name' field in the admin list view.
     list_display = ('policy_type_name',)
+
 
 # Admin class for InsurancePolicy model.
 @admin.register(InsurancePolicy)
