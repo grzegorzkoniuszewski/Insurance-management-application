@@ -1,6 +1,10 @@
 from django.contrib import admin
 from .models import PolicyStatus, PolicyType, InsurancePolicy
 
+admin.site.site_header = 'Insurance Management Application site administration'
+admin.site.index_title = 'Insurance Management Application administration panel'
+admin.site.site_title = 'Insurance Management Application - Administration panel'
+
 
 # Admin class for PolicyStatus model.
 @admin.register(PolicyStatus)
