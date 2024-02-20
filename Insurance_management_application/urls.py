@@ -16,8 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from ima_display.views import StartPage
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', StartPage.as_view())
     # path('accounts/login/', LoginView.as_view(), name='login'),
 ]
