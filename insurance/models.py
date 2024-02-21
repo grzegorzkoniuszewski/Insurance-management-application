@@ -1,4 +1,5 @@
 from django.db import models
+from TUBase.models import CustomTUBase
 
 
 class PolicyStatus(models.Model):
@@ -45,6 +46,13 @@ class InsurancePolicy(models.Model):
         verbose_name="Policies Type",
         on_delete=models.SET_NULL,  # Action to take when related object is deleted.
         null=True,  # Allows null values in the database.
+    )
+    # Insurance company associated with the policy.
+    insurance_company = models.ForeignKey(
+        CustomTUBase,
+        verbose_name="Insurance Company",
+        on_delete=models.SET_NULL,
+        null=True,
     )
 
     def __str__(self):
