@@ -6,7 +6,7 @@ from .models import CustomVehicle
 # View for displaying a list of vehicles.
 def vehicle_list(request):
     vehicle = CustomVehicle.objects.all()
-    return render(request, 'vehicle_list.html', {'vehicle': vehicle})
+    return render(request, 'vehicle_list.html')
 
 
 # View for displaying details of a single vehicle.
