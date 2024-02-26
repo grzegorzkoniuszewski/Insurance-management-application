@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import CustomVehicle
+
+import vehicle
+from .models import CustomVehicle, VehicleStatus
 
 
 # View for displaying a list of vehicles.
@@ -30,3 +32,16 @@ def vehicle_details_edit(request, id):
         pass
     else:
         return render(request, 'vehicle_details_edit.html', {'vehicle': vehicle})
+
+
+def vehicle_status_add(request):
+    if request.method == 'POST':
+        pass
+    else:
+        return render(request, 'vehicle_status_add.html')
+
+
+def vehicle_status_delete(request, vehicle_status_id):
+    vehicle_status = VehicleStatus.objects.get(pk=id)
+    pass
+
