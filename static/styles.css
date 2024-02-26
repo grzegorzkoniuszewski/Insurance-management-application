@@ -3,13 +3,30 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0; /* Light grey background */
+    background-image: url('bcg.jpg');
+    background-size: 100%; /* Cover the entire background */
+    background-attachment: fixed;
+    background-position: center;
+
+}
+
+header {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px 10px;
+    font-weight: bold;
+    padding: 5px 1 0px;
+    border-radius: 20px;
+    top: 50%;
+
 
 }
 
 .buttons {
     text-align: center;
     margin-top: 75px;
+    box-shadow: 20px 20px 75px 15px;
 }
 
 a.button {
@@ -26,7 +43,7 @@ a.button {
 
 /* Register Button */
 .register-button {
-    background-color: #333; /* Dark grey */
+    background-color: black; /* Dark grey */
     color: #fff; /* White text */
 }
 
@@ -46,8 +63,8 @@ a.button {
 
 /* About Button */
 .about-button {
-    background-color: #888; /* Light grey */
-    color: #333; /* Dark grey text */
+    background-color: black; /* Light grey */
+    color: #fff; /* Dark grey text */
     font-size: 14px; /* Smaller font size */
 }
 
