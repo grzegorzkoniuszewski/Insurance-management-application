@@ -43,3 +43,8 @@ def policy_delete(request, policy_id):
     policy = InsurancePolicy.objects.get(pk=policy_id)
     # Delete the policy and redirect to the policy list page.
     pass
+
+
+def home(request):
+    return render(request, 'base.html')
+
