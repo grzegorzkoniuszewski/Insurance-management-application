@@ -16,3 +16,4 @@ class CustomUserAdmin(UserAdmin):
     list_filter = ['is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions']
     search_fields = ['username', 'email', 'first_name', 'last_name', 'phone_number', 'postal_code', 'location']
     ordering = ['id']
+    
