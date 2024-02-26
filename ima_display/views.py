@@ -8,6 +8,4 @@ from django.views.generic import TemplateView
 
 
 class StartPage(TemplateView):
-    template_name = 'index.html'
-
-# Create your views here.
+    template_name = 'mainpage.html'
