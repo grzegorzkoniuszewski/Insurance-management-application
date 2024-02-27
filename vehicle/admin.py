@@ -10,7 +10,7 @@ class VehicleAdmin(admin.ModelAdmin):
 
 
 @admin.register(VehicleStatus)
-class VehicleStatus(admin.ModelAdmin):
-    # Display the 'vehicle_status_name' field in the admin list view.
+class VehicleStatusAdmin(admin.ModelAdmin):
+    # Display the 'vehicle_statuses' field in the admin list view.
     list_display = ('vehicle_status',)
 

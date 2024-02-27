@@ -1,4 +1,16 @@
 
-{% extends 'base.html'  %}
+<html lang="en">
+    {%  block content %}
 
+    <h3> Homepage! </h3>
+    <p> Welcome to my website!</p>
+
+    <a href="{% url 'vehicle_add' %}"> Add a vehicle </a>
+    <br>
+
+
+
+    {% endblock %}
+
+</html>
 
