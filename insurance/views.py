@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import InsurancePolicy
+from .forms import InsuranceForm
+
 
 
 # View for displaying a list of insurance policies.
@@ -17,13 +19,23 @@ def policy_detail(request, policy_id):
 
 # View for adding a new insurance policy.
 def policy_add(request):
+    form = InsuranceForm()
+
     if request.method == 'POST':
-        # Process form data and save the new policy.
-        # Redirect to the policy detail page.
-        pass
-    else:
-        # Display the form for adding a new policy.
-        return render(request, 'policy_add.html')
+
+        form = InsuranceForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            return redirect('insurance_add')
+
+    context = {"InsuranceForm": form}
+
+    return render(request, 'insurance_add.html', context)
+
+
+
+
 
 
 # View for editing an existing insurance policy.

@@ -23,5 +23,6 @@ urlpatterns = [
     path('', StartPage.as_view()),
     # path('accounts/login/', LoginView.as_view(), name='login'),
     path('vehicles/', include('vehicle.urls')),
+    path('insurance/', include('insurance.urls')),
 
 ]
