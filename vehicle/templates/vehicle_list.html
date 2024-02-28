@@ -1,13 +1,32 @@
+ {%  block content %}
 
+    <h3> All vehicles </h3>
+    <hr>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>The list of vehicles</title>
-    <p>The list of vehicles </p>
-</head>
-<body>
+    {% for vehicle in AllVehicles %}
+        <br>
+        {{ vehicle.id }}
+        <br>
+        {{ vehicle.registration_number}}
+        <br>
+         {{ vehicle.vin_number}}
+        <br>
+         {{ vehicle.make}}
+        <br>r
+         {{ vehicle.model}}
+        <br>
+         {{ vehicle.purchase_date}}
+        <br>
+         {{ vehicle.sale_date}}
+        <br>
+        {{ vehicle.policy}}
+        <br>
+        {{ vehicle.status}}
+        <br>
+        <a href="{% url 'vehicle_add' %}"> Add another vehicle </a>
 
-</body>
+    {% endfor %}
+
+    {% endblock %}
+
 </html>

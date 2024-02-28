@@ -1,21 +1,22 @@
-{##}
-{#{% extends 'base.html'  %}#}
-
+<<!DOCTYPE html>
 <html lang="en">
-    {%  block content %}
+<head>
+</head>
+<body>
 
-    <h3> Insuranace management application </h3>
-    <p> Add vehicle here </p>
-    <hr>
-    <form method="post" autocomplete="off"> </form>
+{% block content %}
 
-        {% csrf_token %}
+<h3>Insurance management application</h3>
+<p>Add vehicle here</p>
+<hr>
+<form method="post" autocomplete="off">
+    {% csrf_token %}
+    {{ VehicleForm.as_p }}
+    <input type="submit" value="Submit">
+</form>
 
-        {{ VehicleForm.as_p }}
+{% endblock %}
 
-
-        <input type="submit" value="Submit"/>
-
-    {%  endblock %}
-
+</body>
 </html>
+
