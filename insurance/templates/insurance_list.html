@@ -1,0 +1,27 @@
+    {%  block content %}
+
+    <h3> All insurances </h3>
+    <hr>
+
+    {% for insurance in AllInsurances %}
+        <br>
+        {{ insurance.id }}
+        <br>
+        {{ insurance.policy_number }}
+        <br>
+        {{ insurance.validity_start_date }}
+        <br>
+        {{ insurance.validity_end_date }}
+        <br>r
+        {{ insurance.status }}
+        <br>
+        {{ insurance.policy_type }}
+        <br>
+        <br>
+        <a href="{% url 'insurance_add' %}"> Add another insurance </a>
+
+    {% endfor %}
+
+    {% endblock %}
+
+</html>

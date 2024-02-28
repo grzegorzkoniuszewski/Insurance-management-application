@@ -4,11 +4,13 @@ from .models import InsurancePolicy
 from .forms import InsuranceForm
 
 
+def insurance_list(request):
 
-# View for displaying a list of insurance policies.
-def policy_list(request):
-    policies = InsurancePolicy.objects.all()
-    return render(request, 'policy_list.html', {'policies': policies})
+    queryDataAll = InsurancePolicy.objects.all()
+
+    context = {'AllInsurances': queryDataAll}
+
+    return render(request, 'insurance_list.html', context)
 
 
 # View for displaying details of a single insurance policy.
@@ -17,8 +19,7 @@ def policy_detail(request, policy_id):
     return render(request, 'policy_detail.html', {'policy': policy})
 
 
-# View for adding a new insurance policy.
-def policy_add(request):
+def insurance_add(request):
     form = InsuranceForm()
 
     if request.method == 'POST':
@@ -27,8 +28,8 @@ def policy_add(request):
 
         if form.is_valid():
             form.save()
-            return redirect('insurance_add')
-
+            return redirect('insurance_list')
+        # else
     context = {"InsuranceForm": form}
 
     return render(request, 'insurance_add.html', context)
