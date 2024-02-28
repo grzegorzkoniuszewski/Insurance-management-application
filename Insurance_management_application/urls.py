@@ -24,5 +24,5 @@ urlpatterns = [
     # path('accounts/login/', LoginView.as_view(), name='login'),
     path('vehicles/', include('vehicle.urls')),
     path('', include('accounts.urls')),
-
+    path('', include('insurance.urls')),
 ]

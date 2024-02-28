@@ -1,6 +1,33 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your App Name</title>
+    <link rel="stylesheet" href="../../static/styles.css">
+    <!-- Link to your CSS file, adjust the href accordingly -->
+</head>
+<body>
 
-{% block content %}
-  <h1>Welcome to your Insurance Management App!</h1>
+<header>
+    <!-- Add header content here if needed -->
+    <h1>Welcome to Insurance Management App</h1>
+    <!-- Add any introductory text or elements here -->
+</header>
 
-{% endblock %}
+<main>
+    <section class="buttons">
+        <a href="register.html" class="register-button button">Register</a>
+        <a href="login.html" class="login-button button">Login</a>
+        <a href="about.html" class="about-button button">About</a>
+    </section>
+    <!-- Add any other content for the main section here -->
+</main>
+
+<footer>
+    <!-- Add footer content here if needed -->
+    <a href="/admin" class="admin-button">Admin Login</a>
+</footer>
+
+</body>
+</html>
