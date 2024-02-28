@@ -1,0 +1,16 @@
+<html lang="en">
+    {%  block content %}
+
+<h3>Insurance management application</h3>
+<p>Add your insurance here</p>
+<hr>
+<form method="post" autocomplete="off">
+    {% csrf_token %}
+    {{ InsuranceForm.as_p }}
+    <input type="submit" value="Submit">
+</form>
+
+{% endblock %}
+
+</body>
+</html>

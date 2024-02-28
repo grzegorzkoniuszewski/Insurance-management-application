@@ -6,8 +6,11 @@ from .models import CustomVehicle, VehicleStatus
 
 
 def vehicle_list(request):
-    vehicle = CustomVehicle.objects.all()
-    return render(request, 'vehicle_list.html')
+    queryDataAll = CustomVehicle.objects.all()
+
+    context = {'AllVehicles': queryDataAll}
+
+    return render(request, 'vehicle_list.html', context)
 
 
 def vehicle_detail(request, id):
@@ -24,7 +27,7 @@ def vehicle_add(request):
 
         if form.is_valid():
             form.save()
-            return redirect('vehicle_add')
+            return redirect('vehicle_list')
 
     context = {"VehicleForm": form}
 
