@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Insurance Policy</title>
+</head>
+<body>
+    <h1>Delete Insurance Policy</h1>
+    <p>Are you sure you want to delete this insurance policy?</p>
+    <p><strong>Policy Number:</strong> {{ object.policy_number }}</p>
+    <p><strong>Start Date:</strong> {{ object.validity_start_date }}</p>
+    <p><strong>End Date:</strong> {{ object.validity_end_date }}</p>
+    <p><strong>Status:</strong> {{ object.status }}</p>
+    <p><strong>Policy Type:</strong> {{ object.policy_type }}</p>
+
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirm Delete</button>
+    </form>
+</body>
+</html>
