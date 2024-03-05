@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-policy">
+    <h1>Insurance Policy Detail</h1>
+    <p><strong>Policy Number:</strong> {{ policy.policy_number }}</p>
+    <p><strong>Validity Start Date:</strong> {{ policy.validity_start_date }}</p>
+    <p><strong>Validity End Date:</strong> {{ policy.validity_end_date }}</p>
+    <p><strong>Status:</strong> {{ policy.status.policy_status_name }}</p>
+    <p><strong>Type:</strong> {{ policy.policy_type.policy_type_name }}</p>
+</div>
+<div class="container-company">
+    <h1>Insurance Company Details</h1>
+    <p><strong>Name:</strong> {{ policy.tuBase.full_name }}</p>
+    <p><strong>Address:</strong> {{ policy.tuBase.address_street }}, {{ policy.tuBase.address_building_number }}, {{ policy.tuBase.address_postal_code }}, {{ policy.tuBase.location }}</p>
+    <p><strong>Phone:</strong> {{ policy.tuBase.phone }}</p>
+    <p><strong>Email:</strong> {{ policy.tuBase.email }}</p>
+</div>
+{% endblock %}

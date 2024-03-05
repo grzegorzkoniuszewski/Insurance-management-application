@@ -1,16 +1,14 @@
-<html lang="en">
-    {%  block content %}
+{% extends 'base.html' %}
 
-<h3>Insurance management application</h3>
-<p>Add your insurance here</p>
-<hr>
-<form method="post" autocomplete="off">
-    {% csrf_token %}
-    {{ InsuranceForm.as_p }}
-    <input type="submit" value="Submit">
-</form>
-
+{% block content %}
+<div class="container">
+    <h3>Insurance management application</h3>
+    <p>Add your insurance here</p>
+    <hr>
+    <form method="post" autocomplete="off">
+        {% csrf_token %}
+        {{ InsuranceForm.as_p }}
+        <input type="submit" class="btn btn-primary" value="Submit">
+    </form>
+</div>
 {% endblock %}
-
-</body>
-</html>

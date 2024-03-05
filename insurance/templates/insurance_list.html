@@ -1,27 +1,44 @@
-    {%  block content %}
+{% extends 'base.html' %}
 
-    <h3> All insurances </h3>
+{% block content %}
+<div class="container">
+    <h3 class="text-center"> All insurances </h3>
     <hr>
 
-    {% for insurance in AllInsurances %}
-        <br>
-        {{ insurance.id }}
-        <br>
-        {{ insurance.policy_number }}
-        <br>
-        {{ insurance.validity_start_date }}
-        <br>
-        {{ insurance.validity_end_date }}
-        <br>r
-        {{ insurance.status }}
-        <br>
-        {{ insurance.policy_type }}
-        <br>
-        <br>
-        <a href="{% url 'insurance_add' %}"> Add another insurance </a>
+    <table class="table table-bordered table-striped mx-auto">
+        <thead class="thead-dark">
+            <tr>
+                <th>Policy Number</th>
+                <th>Validity Start Date</th>
+                <th>Validity End Date</th>
+                <th>Status</th>
+                <th>Policy Type</th>
+                <th>Insurance Company</th>
+                <th>Details</th> <!-- New column for details -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for insurance in AllInsurances %}
+            <tr>
+                <td>{{ insurance.policy_number }}</td>
+                <td>{{ insurance.validity_start_date }}</td>
+                <td>{{ insurance.validity_end_date }}</td>
+                <td>{{ insurance.status }}</td>
+                <td>{{ insurance.policy_type }}</td>
+                <td>
+                    {% if insurance.tuBase %}
+                        {{ insurance.tuBase.short_name }}
+                    {% else %}
+                        No insurance company assigned
+                    {% endif %}
+                </td>
+                <td><a href="{% url 'insurance_detail' insurance.id %}">Details</a></td> <!-- Link to insurance_detail -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 
-    {% endfor %}
-
-    {% endblock %}
-
-</html>
+    <br>
+    <a class="btn btn-primary" href="{% url 'insurance_add' %}"> Add another insurance </a>
+</div>
+{% endblock %}

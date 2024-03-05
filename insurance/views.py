@@ -14,9 +14,9 @@ def insurance_list(request):
 
 
 # View for displaying details of a single insurance policy.
-def policy_detail(request, policy_id):
+def insurance_detail(request, policy_id):
     policy = InsurancePolicy.objects.get(pk=policy_id)
-    return render(request, 'policy_detail.html', {'policy': policy})
+    return render(request, 'insurance_detail.html', {'policy': policy})
 
 
 def insurance_add(request):
@@ -35,35 +35,20 @@ def insurance_add(request):
     return render(request, 'insurance_add.html', context)
 
 
-def policy_edit(request, policy_id):
+def insurance_edit(request, policy_id):
     policy = InsurancePolicy.objects.get(pk=policy_id)
     if request.method == 'POST':
         # Process form data and update the policy.
         # Redirect to the policy detail page.
         pass
     else:
-        return render(request, 'policy_edit.html', {'policy': policy})
+        return render(request, 'insurance_edit.html', {'policy': policy})
 
 
-def policy_delete(request, policy_id):
+def insurance_delete(request, policy_id):
     policy = InsurancePolicy.objects.get(pk=policy_id)
     # Delete the policy and redirect to the policy list page.
     pass
-
-
-def policy_list(request):
-    policies = InsurancePolicy.objects.all()
-    return render(request, 'policy_list.html', {'policies': policies})
-
-
-def policy_add(request):
-    if request.method == 'POST':
-        # Process form data and save the new policy.
-        # Redirect to the policy detail page.
-        pass
-    else:
-        # Display the form for adding a new policy.
-        return render(request, 'policy_add.html')
 
 
 def home(request):
