@@ -1,7 +1,50 @@
-.divider:after,
-.divider:before {
-content: "";
-flex: 1;
-height: 1px;
-background-image: url('bcg.jpg');
-}
+ body {
+            background-image: url('../static/bcg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh; /* Ensure the background covers the entire viewport height */
+            opacity: 0.95;
+        }
+ .navbar-nav {
+            background-color:#000;
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 20px;
+            margin: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
+        }
+ .navbar-nav-login{
+            display: inline-block;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 20px;
+            margin: 10px;
+            font-size: 16px;
+            font-weight: bolder;
+            box-shadow: 0px 3px 6px rgba(200, 0, 0, 0.7);
+        }
+ .navbar-nav-out{
+            display: inline-block;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 20px;
+            margin: 10px;
+            font-size: 16px;
+            font-weight: bolder;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.7);
+
+        }
+ .navbar-nav-admin{
+            display: inline-block;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 20px;
+            margin: 10px;
+            font-size: 16px;
+            font-weight: bolder;
+            box-shadow: 0px 3px 6px rgba(229,184, 11, 0.7);
+            transition: all 0.9s ease-in-out;
+        }
