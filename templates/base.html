@@ -1,8 +1,6 @@
-{% load static %}
-
 <html {% if LANGUAGE_CODE %}lang="{{ LANGUAGE_CODE }}"{% endif %}>
 
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Insurance Management App</title>
@@ -10,18 +8,68 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-  </head>
+
+    <style>
+        body {
+            background-image: url('../static/bcg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh; /* Ensure the background covers the entire viewport height */
+            opacity: 0.95;
+        }
+        .navbar-nav {
+            background-color:#000;
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 20px;
+            margin: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.3);
+        }
+        .navbar-nav-login{
+            display: inline-block;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 20px;
+            margin: 10px;
+            font-size: 16px;
+            font-weight: bolder;
+            box-shadow: 0px 3px 6px rgba(200, 0, 0, 0.7);
+        }
+
+        .navbar-nav-out{
+            display: inline-block;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 20px;
+            margin: 10px;
+            font-size: 16px;
+            font-weight: bolder;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.7);
+
+        }
+         .navbar-nav-admin{
+            display: inline-block;
+            text-decoration: none;
+            padding: 15px 30px;
+            border-radius: 20px;
+            margin: 10px;
+            font-size: 16px;
+            font-weight: bolder;
+            box-shadow: 0px 3px 6px rgba(229,184, 11, 0.7);
+            transition: all 0.9s ease-in-out;
+        }
+
+
+    </style>
+</head>
 
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container fixed">
-        <a class="navbar-brand" href="{% url 'mainpage' %}">Insurance Management App</a>
-        <button
-          class="navbar-toggler" type="button"
-          data-toggle="collapse" data-target="#navbarNavAltMarkup"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
+
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <a class="nav-item nav-link active" href="{% url 'mainpage' %}">
@@ -34,17 +82,17 @@
             </a>
           </div>
         </div>
-        <div class="navbar-nav">
+        <div class="navbar-nav-login">
           <a class="nav-item nav-link active" href="{% url 'user_login' %}">
             Login
           </a>
         </div>
-        <div class="navbar-nav">
+        <div class="navbar-nav-out">
           <a class="nav-item nav-link active" href="{% url 'logout' %}">
             Logout
           </a>
         </div>
-        <div class="navbar-nav">
+        <div class="navbar-nav-admin">
           <a class="nav-item nav-link active" href="{% url 'admin:index' %}">
             Admin
           </a>
