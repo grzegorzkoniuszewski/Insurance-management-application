@@ -81,11 +81,14 @@ def insurance_add(request):
 def insurance_edit(request, policy_id):
     policy = InsurancePolicy.objects.get(pk=policy_id)
     if request.method == 'POST':
-        # Process form data and update the policy.
-        # Redirect to the policy detail page.
-        pass
+        form = InsuranceForm(request.POST, instance=policy)
+        if form.is_valid():
+            form.save()
+            return redirect('insurance_detail', policy_id=policy_id)
     else:
-        return render(request, 'insurance_edit.html', {'policy': policy})
+        form = InsuranceForm(instance=policy)
+    return render(request, 'insurance_edit.html', {'form': form, 'policy': policy})
+
 
 
 # def insurance_delete(request, policy_id):

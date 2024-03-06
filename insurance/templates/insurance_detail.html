@@ -1,4 +1,3 @@
-<!-- W widoku insurance_detail.html -->
 {% extends 'base.html' %}
 
 {% block content %}
@@ -18,10 +17,9 @@
     <p><strong>Email:</strong> {{ policy.tuBase.email }}</p>
 </div>
 
-<!-- Added return button -->
+<!-- Added edit and return buttons -->
+<a class="btn btn-primary" href="{% url 'insurance_edit' policy_id=policy.id %}">Edit Insurance</a>
 <a class="btn btn-primary" href="{% url 'insurance_list' %}">Back to All Insurances</a>
-
-
 
 {% endblock %}
 
