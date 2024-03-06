@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirm Delete</title>
+</head>
+<body>
+    <h2>Czy chcesz usunąć tą polisę?</h2>
+    <p>{{ policy }}</p>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" name="confirm_delete" value="Yes">
+        <a href="{% url 'insurance_detail' policy_id=policy.id %}">Nie</a>
+    </form>
+</body>
+</html>
