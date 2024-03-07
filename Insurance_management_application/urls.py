@@ -18,6 +18,11 @@ from django.contrib import admin
 from ima_display.views import StartPage
 from django.urls import path, include
 
+
+admin.site.site_header = 'Insurance Management Admin Panel' # default: "Django Administration"
+admin.site.index_title = 'Features area'                    # default: "Site administration"
+admin.site.site_title = 'Insurance Management Admin Panel'  # default: "Django site admin"
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', StartPage.as_view(), name='mainpage'),
