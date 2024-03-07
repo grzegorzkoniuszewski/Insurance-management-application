@@ -1,5 +1,7 @@
 from django.db import models
+from django.utils.text import slugify
 from TUBase.models import CustomTUBase
+from accounts.models import CustomUser
 
 
 class PolicyStatus(models.Model):
@@ -39,6 +41,7 @@ class InsurancePolicy(models.Model):
     validity_start_date = models.DateField()
     # End date of policy validity.
     validity_end_date = models.DateField()
+    policy_creator = models.ForeignKey(CustomUser, on_delete=models.SET_NULL, null=True)
     # Status of the policy, linked to PolicyStatus model, indicates the current state of the policy.
     status = models.ForeignKey(
         PolicyStatus,
@@ -57,6 +60,13 @@ class InsurancePolicy(models.Model):
     def __str__(self):
         # Returns the policy number as a string representation of the object.
         return self.policy_number
+
+    def save(self, *args, **kwargs):
+        if self.tuBase:
+            company_name_prefix = slugify(self.tuBase.short_name)[:3].upper()
+            self.policy_number = f"{company_name_prefix}-{self.policy_number}"
+
+        super().save(*args, **kwargs)
 
     class Meta:
         verbose_name = "Insurance policy"

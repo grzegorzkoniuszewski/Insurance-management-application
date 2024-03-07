@@ -1,44 +1,27 @@
 {% extends 'base.html' %}
-
-{% block content %}
-<div class="container">
-    <h3 class="text-center"> All insurances </h3>
-    <hr>
-
-    <table class="table table-bordered table-striped mx-auto">
-        <thead class="thead-dark">
-            <tr>
-                <th>Policy Number</th>
-                <th>Validity Start Date</th>
-                <th>Validity End Date</th>
-                <th>Status</th>
-                <th>Policy Type</th>
-                <th>Insurance Company</th>
-                <th>Details</th> <!-- New column for details -->
-            </tr>
-        </thead>
-        <tbody>
-            {% for insurance in AllInsurances %}
-            <tr>
-                <td>{{ insurance.policy_number }}</td>
-                <td>{{ insurance.validity_start_date }}</td>
-                <td>{{ insurance.validity_end_date }}</td>
-                <td>{{ insurance.status }}</td>
-                <td>{{ insurance.policy_type }}</td>
-                <td>
-                    {% if insurance.tuBase %}
-                        {{ insurance.tuBase.short_name }}
-                    {% else %}
-                        No insurance company assigned
-                    {% endif %}
-                </td>
-                <td><a href="{% url 'insurance_detail' insurance.id %}">Details</a></td> <!-- Link to insurance_detail -->
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-
-    <br>
-    <a class="btn btn-primary" href="{% url 'insurance_add' %}"> Add another insurance </a>
+{%  block content %}
+<div class="d-flex flex-row justify-content-between align-items-center">
+  <h3> All insurances </h3>
+  <a href="{% url 'insurance_add' %}" class="btn btn-primary">Add insurance</a>
+</div>
+<hr>
+<div class="w-100 p-3 d-flex flex-row flex-wrap">
+  {% for insurance in policies %}
+  <div class="card p-4 d-inline-block m-2" style="width: 20rem;">
+    <div class="d-flex flex-row justify-content-between">
+      <h4>{{insurance.policy_number}}</h4>
+    </div>
+    <div class="d-flex flex-column">
+      <p class="mt-2 mb-1 d-block">Valid from<p>
+      <span>{{insurance.validity_start_date}} to {{insurance.validity_end_date}}</span>
+    </div>
+    <p>Status: {{insurance.status}}</p>
+    <p>Type: {{insurance.policy_type}}</p>
+    <div class="mt-4 d-flex flex-row">
+      <a href="{% url 'insurance_edit' insurance.id %}" class="btn btn-primary mr-2 text-white flex-grow-1">Edit</a>
+      <a href="{% url 'insurance_delete' insurance.id %}" class="btn btn-danger text-white flex-grow-1">Remove</a>
+    </div>
+  </div>
+  {% endfor %}
 </div>
 {% endblock %}

@@ -1,14 +1,51 @@
 {% extends 'base.html' %}
-
-{% block content %}
-<div class="container">
-    <h3>Edit Insurance Policy</h3>
-    <hr>
-    <form method="post" autocomplete="off">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" class="btn btn-primary" value="Save Changes">
-        <a class="btn btn-secondary" href="{% url 'insurance_detail' policy_id=policy.id %}">Cancel</a>
-    </form>
+{%  block content %}
+{% block style %}
+<style>
+p {
+  display: flex;
+  flex-direction: column;
+}
+.form {
+  width: 30rem;
+}
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  appearance: none;
+  background-color: white;
+}
+select:hover,
+select:focus {
+  border-color: #4CAF50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+input:hover,
+input:focus {
+  border-color: #4CAF50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+</style>
+{% endblock %}
+<div class="d-flex flex-row justify-content-between align-items-center">
+  <h2>Edit insurance details</h2>
+  <a href="{% url 'insurance_list' %}" class="btn btn-primary">Insurance list</a>
 </div>
+<hr>
+<form method="post" class="form mx-auto" autocomplete="off">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" class="btn btn-primary" value="Save changes">
+</form>
 {% endblock %}
