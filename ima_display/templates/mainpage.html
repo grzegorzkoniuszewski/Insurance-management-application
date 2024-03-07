@@ -1,6 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Welcome to your Insurance Management App!</h1>
+{% if current_user.is_authenticated %}
+<h2>Hello {{current_user}}</h2>
+<h2>Welcome to your Insurance Management App!</h2>
 
+<div class="btn-group mt-4 d-flex flex-row flex-wrap w-50">
+  <a href="{% url 'profile' %}" class="btn btn-primary text-white">User profile</a>
+  <a href="{% url 'vehicle_list' %}" class="btn btn-primary text-white">View Vehicles</a>
+  <a href="{% url 'vehicle_add' %}" class="btn btn-primary text-white">Add Vehicle</a>
+</div>
+<div class="btn-group mt-4 d-flex flex-row flex-wrap w-50">
+  <a href="{% url 'insurance_add' %}" class="btn btn-primary text-white">Add insurance</a>
+  <a href="{% url 'insurance_list' %}" class="btn btn-primary text-white">View insurances</a>
+</div>
+{% else %}
+<h2>Oops! It seems like you haven't logged in yet.</h2>
+<h2>Resigter or login first!</h2>
+{% endif %}
 {% endblock %}
