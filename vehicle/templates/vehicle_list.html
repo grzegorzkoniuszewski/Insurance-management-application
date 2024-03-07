@@ -1,32 +1,26 @@
- {%  block content %}
+{% extends 'base.html' %}
 
-    <h3> All vehicles </h3>
-    <hr>
-
-    {% for vehicle in AllVehicles %}
-        <br>
-        {{ vehicle.id }}
-        <br>
-        {{ vehicle.registration_number}}
-        <br>
-         {{ vehicle.vin_number}}
-        <br>
-         {{ vehicle.make}}
-        <br>r
-         {{ vehicle.model}}
-        <br>
-         {{ vehicle.purchase_date}}
-        <br>
-         {{ vehicle.sale_date}}
-        <br>
-        {{ vehicle.policy}}
-        <br>
-        {{ vehicle.status}}
-        <br>
-        <a href="{% url 'vehicle_add' %}"> Add another vehicle </a>
-
-    {% endfor %}
-
-    {% endblock %}
-
-</html>
+{%  block content %}
+<div class="d-flex flex-row">
+  <h3> All vehicles </h3>
+  <a href="{% url 'vehicle_add' %}" class="ml-2 btn btn-primary text-white ml-auto">Add vehicle</a>
+</div>
+<hr>
+<div class="w-100 p-3 d-flex flex-row flex-wrap">
+  {% for vehicle in AllVehicles %}
+  <div class="card p-4 d-inline-block m-2">
+    <div class="d-flex flex-row justify-content-between">
+      <h4>Id. {{vehicle.id}}</h4>
+      <h4>{{vehicle.registration_number}}</h4>
+    </div>
+    <p>{{vehicle.make}} {{vehicle.model}} - {{vehicle.status}}</p>
+    Vin no. : {{ vehicle.vin_number}}
+    <div class="mt-4 d-flex flex-row">
+      <a href="{% url 'vehicle_details_edit' vehicle.id %}" class="btn btn-primary mr-2 text-white flex-grow-1">Edit</a>
+      <a href="{% url 'vehicle_detail' vehicle.id %}" class="btn btn-primary mr-2 text-white flex-grow-1">Info</a>
+      <a href="{% url 'vehicle_remove' vehicle.id %}" class="btn btn-danger text-white flex-grow-1">Remove</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

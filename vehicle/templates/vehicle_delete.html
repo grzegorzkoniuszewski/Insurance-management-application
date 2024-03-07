@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <section class="container" style="margin-top: 100px; margin-bottom: 100px">
+        <p>
+        Id {{id}}.
+        {{message}}
+        <a href="{% url 'vehicle_list' %}">Back to Homepage</a>
+        </p>
+    </section>
+{% endblock %}

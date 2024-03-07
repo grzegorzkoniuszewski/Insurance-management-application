@@ -1,22 +1,48 @@
-<<!DOCTYPE html>
-<html lang="en">
-<head>
-</head>
-<body>
-
-{% block content %}
-
-<h3>Insurance management application</h3>
-<p>Add vehicle here</p>
+{% extends 'base.html' %}
+{%  block content %}
+{% block style %}
+<style>
+p {
+  display: flex;
+  flex-direction: column;
+}
+.form {
+  width: 30rem;
+}
+select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  appearance: none;
+  background-color: white;
+}
+select:hover,
+select:focus {
+  border-color: #4CAF50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+input:hover,
+input:focus {
+  border-color: #4CAF50;
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+</style>
+{% endblock %}
+<h2>Add your vehicle here</h2>
 <hr>
-<form method="post" autocomplete="off">
+<form method="post" class="form mx-auto" autocomplete="off">
     {% csrf_token %}
     {{ VehicleForm.as_p }}
-    <input type="submit" value="Submit">
+    <input type="submit" class="btn btn-primary" value="Add">
 </form>
-
 {% endblock %}
-
-</body>
-</html>
-
