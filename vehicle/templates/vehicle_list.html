@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{%  block content %}
+{% block content %}
 <div class="d-flex flex-row">
   <h3> All vehicles </h3>
   <a href="{% url 'vehicle_add' %}" class="ml-2 btn btn-primary text-white ml-auto">Add vehicle</a>
@@ -10,17 +10,19 @@
   {% for vehicle in AllVehicles %}
   <div class="card p-4 d-inline-block m-2">
     <div class="d-flex flex-row justify-content-between">
-      <h4>Id. {{vehicle.id}}</h4>
       <h4>{{vehicle.registration_number}}</h4>
     </div>
     <p>{{vehicle.make}} {{vehicle.model}} - {{vehicle.status}}</p>
     Vin no. : {{ vehicle.vin_number}}
     <div class="mt-4 d-flex flex-row">
-      <a href="{% url 'vehicle_details_edit' vehicle.id %}" class="btn btn-primary mr-2 text-white flex-grow-1">Edit</a>
       <a href="{% url 'vehicle_detail' vehicle.id %}" class="btn btn-primary mr-2 text-white flex-grow-1">Info</a>
+      <a href="{% url 'vehicle_details_edit' vehicle.id %}" class="btn btn-primary mr-2 text-white flex-grow-1">Edit</a>
       <a href="{% url 'vehicle_remove' vehicle.id %}" class="btn btn-danger text-white flex-grow-1">Remove</a>
     </div>
   </div>
   {% endfor %}
+</div>
+<div class="mt-3 mb-3 text-center">
+  <a href="javascript:history.back()" class="btn btn-primary">Back</a>
 </div>
 {% endblock %}
