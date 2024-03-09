@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import CreateView, ListView, UpdateView, DeleteView
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.urls import reverse_lazy
 
@@ -43,6 +43,11 @@ class InsuranceDeleteView(LoginRequiredMixin, DeleteView):
     model = InsurancePolicy
     template_name = 'insurance_delete.html'
     success_url = reverse_lazy('insurance_list')
+
+
+class InsuranceDetailView(LoginRequiredMixin, DetailView):
+    model = InsurancePolicy
+    template_name = 'insurance_detail.html'
 
 
 def home(request):

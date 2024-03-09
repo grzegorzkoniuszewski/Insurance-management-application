@@ -18,10 +18,14 @@
     <p>Status: {{insurance.status}}</p>
     <p>Type: {{insurance.policy_type}}</p>
     <div class="mt-4 d-flex flex-row">
+      <a href="{% url 'insurance_detail' insurance.id %}" class="btn btn-primary mr-2 text-white flex-grow-1">Info</a>
       <a href="{% url 'insurance_edit' insurance.id %}" class="btn btn-primary mr-2 text-white flex-grow-1">Edit</a>
       <a href="{% url 'insurance_delete' insurance.id %}" class="btn btn-danger text-white flex-grow-1">Remove</a>
     </div>
   </div>
   {% endfor %}
+</div>
+<div class="mt-3 mb-3 text-center">
+  <a href="{% url 'mainpage' %}" class="btn btn-primary mr-2 text-white flex-grow-1">Back</a>
 </div>
 {% endblock %}
