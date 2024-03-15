@@ -12,7 +12,6 @@ The goal of this project is the application to manage user insurance policies, b
 
 venv\Scripts\activate
 pip  install  -r  requirements.txt
-pip  install  -r  test_requirements.txt
 pip  list
 ```
 Check: [tutorial venv](https://docs.python.org/3/tutorial/venv.html)
