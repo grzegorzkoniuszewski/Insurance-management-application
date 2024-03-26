@@ -10,7 +10,6 @@ class CustomTUBase(models.Model):
     location = models.CharField(max_length=100)
     phone = models.CharField(max_length=20)
     email = models.EmailField()
-    id_name = models.CharField(max_length=3, unique=True)
 
     # this is for create id_name used for policy number that contains id_name of insurance company and exact number
     def save(self, *args, **kwargs):
