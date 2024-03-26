@@ -2,7 +2,7 @@
 
 ## Introduction
 
-I wrote this project in a team of three participants of a Python programming course, who devoted a total of 42 hours to its implementation, in accordance with the time allocated for the course. The aim of the project is to create an application enabling the management of users' insurance policies, both motor and insurance.
+I wrote this project in a team of three participants of the Python programming course, who devoted a total of 42 hours to its implementation, in accordance with the time allocated for the course. The aim of the project is to create an application enabling the management of users' motor insurance policies at the moment and other types of them in the future.
 
 ## Requirements
 ```bash
