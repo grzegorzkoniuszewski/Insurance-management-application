@@ -1,15 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
 {% block style %}
+
 <style>
 p {
   display: flex;
   flex-direction: column;
 }
+/* Stylizacja paragrafów */
 .form {
   width: 30rem;
 }
+
 select {
   width: 100%;
   padding: 10px;
@@ -19,11 +23,13 @@ select {
   appearance: none;
   background-color: white;
 }
+
 select:hover,
 select:focus {
   border-color: #4CAF50;
   box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
 }
+
 input {
   width: 100%;
   padding: 10px;
@@ -32,70 +38,26 @@ input {
   border-radius: 5px;
   box-sizing: border-box;
 }
+
 input:hover,
 input:focus {
   border-color: #4CAF50;
   box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
 }
+
 </style>
+
 {% endblock %}
+
 <h2>Add your vehicle here</h2>
+
 <hr>
+
 <form method="post" class="form mx-auto" autocomplete="off">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" class="btn btn-primary" value="Add">
-    <br>
-    <input type="button" class="btn btn-secondary" value="Cancel" onclick="window.history.back();"> <!-- Dodanie przycisku "Cancel" -->
-    </br>
+    <input type="button" class="btn btn-secondary btn-lg" value="Cancel" onclick="window.location.href='{% url 'vehicle_list' %}';">
 </form>
-{% endblock %}
 
-{#{% extends 'base.html' %}#}
-{#{%  block content %}#}
-{#{% block style %}#}
-{#<style>#}
-{#p {#}
-{#  display: flex;#}
-{#  flex-direction: column;#}
-{#}#}
-{#.form {#}
-{#  width: 30rem;#}
-{#}#}
-{#select {#}
-{#  width: 100%;#}
-{#  padding: 10px;#}
-{#  font-size: 16px;#}
-{#  border: 1px solid #ccc;#}
-{#  border-radius: 5px;#}
-{#  appearance: none;#}
-{#  background-color: white;#}
-{#}#}
-{#select:hover,#}
-{#select:focus {#}
-{#  border-color: #4CAF50;#}
-{#  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);#}
-{#}#}
-{#input {#}
-{#  width: 100%;#}
-{#  padding: 10px;#}
-{#  font-size: 16px;#}
-{#  border: 1px solid #ccc;#}
-{#  border-radius: 5px;#}
-{#  box-sizing: border-box;#}
-{#}#}
-{#input:hover,#}
-{#input:focus {#}
-{#  border-color: #4CAF50;#}
-{#  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);#}
-{#}#}
-{#</style>#}
-{#{% endblock %}#}
-{#<h2>Add your vehicle here</h2>#}
-{#<hr>#}
-{#<form method="post" class="form mx-auto" autocomplete="off">#}
-{#    {% csrf_token %}#}
-{#    {{ VehicleForm.as_p }}#}
-{#    <input type="submit" class="btn btn-primary" value="Add">#}
-{#</form>#}
-{#{% endblock %}#}
+{% endblock %}
