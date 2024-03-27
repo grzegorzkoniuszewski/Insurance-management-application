@@ -1,14 +1,23 @@
 {% extends 'base.html' %}
+<!-- Rozszerza szablon bazowy base.html -->
+
 {%  block content %}
+<!-- Rozpoczyna blok zawartości -->
+
 {% block style %}
+<!-- Rozpoczyna blok stylów -->
+
 <style>
+/* Stylizacja formularza */
 p {
   display: flex;
   flex-direction: column;
 }
+/* Stylizacja paragrafów */
 .form {
   width: 30rem;
 }
+/* Ustawienie szerokości formularza */
 select {
   width: 100%;
   padding: 10px;
@@ -18,11 +27,13 @@ select {
   appearance: none;
   background-color: white;
 }
+/* Stylizacja rozwijanych list */
 select:hover,
 select:focus {
   border-color: #4CAF50;
   box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
 }
+/* Stylizacja rozwijanych list po najechaniu i fokusowaniu */
 input {
   width: 100%;
   padding: 10px;
@@ -31,18 +42,36 @@ input {
   border-radius: 5px;
   box-sizing: border-box;
 }
+/* Stylizacja pól tekstowych */
 input:hover,
 input:focus {
   border-color: #4CAF50;
   box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
 }
+/* Stylizacja pól tekstowych po najechaniu i fokusowaniu */
 </style>
+
 {% endblock %}
+<!-- Zamyka blok stylów -->
+
 <h2>Add your insurance here</h2>
+<!-- Nagłówek dodawania ubezpieczenia -->
+
 <hr>
+<!-- Linia pozioma -->
+
 <form method="post" class="form mx-auto" autocomplete="off">
+    <!-- Formularz dodawania ubezpieczenia -->
     {% csrf_token %}
+    <!-- Token zabezpieczający CSRF -->
     {{ form.as_p }}
+    <!-- Wyświetla formularz jako listę paragrafów -->
     <input type="submit" class="btn btn-primary" value="Submit">
+    <!-- Przycisk wysyłający formularz -->
+    <br>
+    <input type="button" class="btn btn-secondary" value="Cancel" onclick="window.history.back();"> <!-- Dodanie przycisku "Cancel" -->
+    </br>
 </form>
+
 {% endblock %}
+<!-- Zamyka blok zawartości -->

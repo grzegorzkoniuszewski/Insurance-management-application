@@ -1,51 +1,74 @@
 {% extends 'base.html' %}
-{%  block content %}
+<!-- Rozszerza szablon bazowy base.html -->
+
+{% block content %}
+<!-- Rozpoczyna blok zawartości -->
+
 {% block style %}
+<!-- Rozpoczyna blok stylów -->
+
 <style>
+/* Stylizacja formularza */
 p {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Układa elementy w kolumnie */
 }
+/* Stylizacja paragrafów */
 .form {
-  width: 30rem;
+  width: 30rem; /* Ustawienie szerokości formularza */
 }
+/* Stylizacja szerokości formularza */
 select {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  appearance: none;
-  background-color: white;
+  width: 100%; /* Szerokość rozwijanych list na 100% */
+  padding: 10px; /* Dodaje wewnętrzny odstęp */
+  font-size: 16px; /* Ustawienie rozmiaru czcionki */
+  border: 1px solid #ccc; /* Dodaje obramowanie */
+  border-radius: 5px; /* Zaokrąglenie rogów */
+  appearance: none; /* Usuwa domyślny wygląd elementu */
+  background-color: white; /* Tło białe */
 }
+/* Stylizacja rozwijanych list */
 select:hover,
 select:focus {
-  border-color: #4CAF50;
-  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+  border-color: #4CAF50; /* Kolor obramowania po najechaniu myszką lub fokusowaniu */
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Dodaje cień */
 }
+/* Stylizacja rozwijanych list po najechaniu i fokusowaniu */
 input {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box;
+  width: 100%; /* Szerokość pola tekstowego na 100% */
+  padding: 10px; /* Dodaje wewnętrzny odstęp */
+  font-size: 16px; /* Ustawienie rozmiaru czcionki */
+  border: 1px solid #ccc; /* Dodaje obramowanie */
+  border-radius: 5px; /* Zaokrąglenie rogów */
+  box-sizing: border-box; /* Ustawia model pudełka na border-box */
 }
+/* Stylizacja pól tekstowych */
 input:hover,
 input:focus {
-  border-color: #4CAF50;
-  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+  border-color: #4CAF50; /* Kolor obramowania po najechaniu myszką lub fokusowaniu */
+  box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Dodaje cień */
 }
+/* Stylizacja pól tekstowych po najechaniu i fokusowaniu */
 </style>
+
 {% endblock %}
-<div class="d-flex flex-row justify-content-between align-items-center">
-  <h2>Edit insurance details</h2>
-  <a href="{% url 'insurance_list' %}" class="btn btn-primary">Insurance list</a>
-</div>
+<!-- Zamyka blok stylów -->
+
 <hr>
+<!-- Linia pozioma -->
+
 <form method="post" class="form mx-auto" autocomplete="off">
+    <!-- Formularz edycji ubezpieczenia -->
     {% csrf_token %}
+    <!-- Token zabezpieczający CSRF -->
     {{ form.as_p }}
-    <input type="submit" class="btn btn-primary" value="Save changes">
+    <!-- Wyświetla formularz jako listę paragrafów -->
+    <input type="submit" class="btn btn-primary" value="Save Changes">
+    <!-- Przycisk wysyłający formularz -->
+    <br>
+    <input type="button" class="btn btn-secondary" value="Cancel" onclick="window.history.back();"> <!-- Dodanie przycisku "Cancel" -->
+    </br>
 </form>
+
 {% endblock %}
+<!-- Zamyka blok zawartości -->
