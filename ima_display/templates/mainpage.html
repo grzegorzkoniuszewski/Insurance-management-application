@@ -1,21 +1,35 @@
 {% extends "base.html" %}
 
 {% block content %}
-{% if current_user.is_authenticated %}
-<h2>Hello {{current_user}}</h2>
-<h2>Welcome to your Insurance Management App!</h2>
-
-<div class="btn-group mt-4 d-flex flex-row flex-wrap w-50">
-  <a href="{% url 'profile' %}" class="btn btn-primary text-white">User profile</a>
-  <a href="{% url 'vehicle_list' %}" class="btn btn-primary text-white">View Vehicles</a>
-  <a href="{% url 'vehicle_add' %}" class="btn btn-primary text-white">Add Vehicle</a>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            {% if current_user.is_authenticated %}
+            <h2 class="mt-5 mb-4" style="white-space: nowrap;">Welcome to your Insurance Management App, {{ current_user }}!</h2>
+              <h3 class="mb-4 text-muted">Here you can manage your insurances and vehicles.</h3>
+            <div class="btn-group d-flex justify-content-center mb-4">
+                <a href="{% url 'profile' %}" class="btn btn-primary mr-2">Your Profile</a>
+                <a href="{% url 'vehicle_list' %}" class="btn btn-primary mr-2">View Vehicles</a>
+                <a href="{% url 'vehicle_add' %}" class="btn btn-primary">Add Vehicle</a>
+            </div>
+            <div class="btn-group d-flex justify-content-center">
+                <a href="{% url 'insurance_add' %}" class="btn btn-primary mr-2">Add Insurance</a>
+                <a href="{% url 'insurance_list' %}" class="btn btn-primary">View Insurances</a>
+            </div>
+            {% else %}
+            <h2 class="mt-5 mb-4" style="white-space: nowrap;">Oops! To use our website, you must first log in.</h2>
+            <p class="mb-4">If you want to manage your insurances and vehicles, we encourage you to log in.</p>
+            <p class="mb-4">If you don't have an account yet, you can <a href="{% url 'register' %}">create
+                    one now</a>.</p>
+            <hr>
+            <h3 class="mb-4">Insurance Management App Features:</h3>
+            <p class="mb-4">The Insurance Management App enables you to efficiently oversee your insurance policies.
+                Easily monitor policy details such as policy numbers, validity dates, and status.
+                Manage your vehicles by tracking registration numbers, VIN numbers, as well as purchase and sale dates.
+                Stay organized and well-informed with real-time updates and reminders.</p>
+            <p class="mb-4">Join us now and take control of your insurance and vehicle management!</p>
+            {% endif %}
+        </div>
+    </div>
 </div>
-<div class="btn-group mt-4 d-flex flex-row flex-wrap w-50">
-  <a href="{% url 'insurance_add' %}" class="btn btn-primary text-white">Add insurance</a>
-  <a href="{% url 'insurance_list' %}" class="btn btn-primary text-white">View insurances</a>
-</div>
-{% else %}
-<h2>Oops! To use our website, you must first</h2>
-<h2>Resigter or Login!</h2>
-{% endif %}
 {% endblock %}
