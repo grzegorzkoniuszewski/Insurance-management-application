@@ -85,7 +85,6 @@ The user also has the full ability to add cars and modify data related to them o
 
 6.The user's insurance policies page before adding a new policy
 ![img_8.png](screenshots/img_8.png)
-
 7.Insurance adding form
 ![img_9.png](screenshots/img_9.png)
 
@@ -93,15 +92,14 @@ The user also has the full ability to add cars and modify data related to them o
 ![img_10.png](screenshots/img_10.png)
 
 9.A page presenting details of a specific policy entered by the user after pressing the info button.
-![img_11.png](screenshots/img_11.png)
-
-6.Vehicle list page
+![img_17.png](screenshots/img_17.png)
+10.Vehicle list page
 ![img_6.png](screenshots/img_6.png)
 
-7.Vehicle adding form
+11.Vehicle adding form
 ![img_7.png](screenshots/img_7.png)
 
-8.Page of deleting a policy/car after selecting the "Delete" option while on the list of policies/vehicles
+12.Page of deleting a policy/car after selecting the "Delete" option while on the list of policies/vehicles
 ![img_12.png](screenshots/img_12.png)![img_13.png](screenshots/img_13.png)
 
 Bonus screenshots related to the administration panel:
